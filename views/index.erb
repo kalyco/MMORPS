@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RPS</title>
+    <header>Welcome to Rock, Paper, Scissors!</header>
+    <br>
+    <br>
+  </head>
+  <body>
+    <form action= "/rps" method= "post">
+      <input type="submit" class="f" name="r" value="rock"/>
+      <input type="submit" class="f" name="p" value="paper"/>
+      <input type="submit" class="f" name="s" value="scissors"/>
+      <input type="submit" name="reset" value="reset"/>
+    </form>
+    <ul>
+    </ul>
+      <% unless session[:player].nil? %>
+        <%= "Player score: #{session[:score][1]}, Computer score: #{session[:score][0]}" %>
+        <br>
+        <%= "Player chose #{session[:player]}." %>
+        <br>
+        <%= "Computer chose #{session[:computer]}." %>
+        <br>
+        <% if session[:winner].empty? %>
+        <%= "Tie. Try again." %>"
+        <% else %>
+        <%= "#{session[:winner]} wins!" %>
+        <% end %>
+      <% end %>
+  </body>
+</html>
